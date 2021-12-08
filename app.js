@@ -4,7 +4,7 @@ const bdayInput = document.querySelector("#bday"),
       outputDiv = document.querySelector("#output");
 
 const populateOutput = (text)=>{
-    outputDiv.innerText = text;
+    outputDiv.innerHTML = text;
 }    
 const checkIfLucky = (dob, num)=>{
     let sum = 0;
@@ -15,9 +15,12 @@ const checkIfLucky = (dob, num)=>{
     return sum%num===0;
 }
 checkBtn.addEventListener("click",()=>{
-    if(checkIfLucky(bdayInput.value,numInput.value)){
-        populateOutput(numInput.value+" is lucky for you indeed!");
-    }else{
-        populateOutput(numInput.value+" is not so lucky after all...");
-    }
+    let bday = bdayInput.value, num =numInput.value;
+    if(bday==="" || num==="") 
+        populateOutput("<span id=\"error\">Please provide valid input</span>");
+    else if(checkIfLucky(bday,num))
+        populateOutput(num+" is lucky for you indeed!");
+    else
+        populateOutput(num+" is not so lucky after all...");
+    
 })

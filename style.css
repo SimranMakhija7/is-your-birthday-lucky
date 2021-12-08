@@ -90,3 +90,8 @@ footer .link{
     font-size: 1.1rem;
     text-align: center;
 }
+
+#error{
+    color: red;
+    font-weight: bold;
+}
